@@ -2,11 +2,11 @@ class UserController < ApplicationController
   before_action :set_user, only: [:show, :update, :delete]
 
   def show
-    render json: @item
+    render json: @user
   end
 
   def create
-    @user = Item.new(user_params)
+    @user = User.new(user_params)
 
     if @user.save
       render json: @user, status: :created
