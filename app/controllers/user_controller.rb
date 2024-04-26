@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-  before_action :set_user, only: [:update, :delete]
+  before_action :set_user, only: [:show, :update, :delete]
 
   def show
     render json: @item
