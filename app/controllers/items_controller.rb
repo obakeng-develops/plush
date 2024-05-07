@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :update, :delete]
+  before_action :set_user, only: [:user_items]
 
   def index
     @items = Item.all
@@ -28,7 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item)
+    if @item.update(item_params)
       render json: @item, status: :ok
     else
       render json: @item, status: :unprocessable_entity
@@ -51,6 +52,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :type, :category_id, :user_id)
+    params.require(:item).permit(:name, :price, :item_type, :category_id, :user_id)
   end
 end
