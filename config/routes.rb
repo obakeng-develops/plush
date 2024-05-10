@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :categories, only: [:index, :create, :update, :delete]
+  resources :categories, only: [:index, :show, :create, :update, :delete]
   resources :items, only: [:index, :create, :show, :update, :delete]
   resources :user, only: [:show, :create, :update, :delete] do
     get 'items', to: 'items#user_items'
